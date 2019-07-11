@@ -6,6 +6,17 @@
   "author": "andrew.wood.dev@outlook.com",
   "license": "MIT",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "@slack/rtm-api": "^5.0.1",
+    "@slack/web-api": "^5.0.1",
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
