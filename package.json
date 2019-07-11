@@ -6,7 +6,11 @@
   "author": "andrew.wood.dev@outlook.com",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "node src/index.js"
+  },
+  "engines": {
+    "node": "10.16.0",
+    "yarn": "1.16.0"
   },
   "dependencies": {
     "@slack/rtm-api": "^5.0.1",
