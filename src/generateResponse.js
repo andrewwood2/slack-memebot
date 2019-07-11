@@ -24,6 +24,7 @@ async function generateResponse({ keyword, meme, topText, bottomText }) {
       }`
     : `https://memegen.link/${meme}/${topText}/${bottomText}.jpg`;
   return {
+    response_type: "in_channel",
     attachments: [{ image_url }]
   };
 }
