@@ -1,0 +1,11 @@
+{
+  "name": "memebot",
+  "version": "1.0.0",
+  "description": "a slackbot to send memes",
+  "main": "src/index.js",
+  "author": "andrew.wood.dev@outlook.com",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}
