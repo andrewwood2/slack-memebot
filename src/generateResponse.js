@@ -17,14 +17,24 @@ async function generateResponse({ keyword, meme, topText, bottomText }) {
         "Pick a template by `/meme templates`. Then `/meme [template shortcut] ; top text; bottom text` "
     };
   }
+
+  const image_url = Object.keys(custom).includes(meme)
+    ? `https://memegen.link/custom/${topText}/${bottomText}.jpg?alt=${
+        custom[meme]
+      }`
+    : `https://memegen.link/${meme}/${topText}/${bottomText}.jpg`;
   return {
-    attachments: [
-      { image_url: `https://memegen.link/${meme}/${topText}/${bottomText}.jpg` }
-    ]
+    attachments: [{ image_url }]
   };
 }
 
+const custom = {
+  pikachu:
+    "https://i.kym-cdn.com/entries/icons/mobile/000/027/475/Screen_Shot_2018-10-25_at_11.02.15_AM.jpg"
+};
+
 const templates = {
+  "Surprised pikacho": "custom/pikachu",
   "10 Guy": "https://memegen.link/api/templates/tenguy",
   "Afraid to Ask Andy": "https://memegen.link/api/templates/afraid",
   "Almost Politically Correct Redneck":
