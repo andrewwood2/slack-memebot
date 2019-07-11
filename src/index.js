@@ -4,6 +4,7 @@ require("dotenv").config();
 
 const generateResponse = require("./generateResponse");
 const parseCommand = require("./parseCommand");
+const verifySlackToken = require("./verifySlackToken");
 
 const port = process.env.PORT || 3000;
 
@@ -11,6 +12,11 @@ const app = new Express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/", (req, res) => {
+  if (!verifySlackToken(req)) {
+    console.log("failed verify");
+    res.statusCode = 404;
+    return res;
+  }
   generateResponse(parseCommand(req.body))
     .then(result => {
       return res.json(result);
