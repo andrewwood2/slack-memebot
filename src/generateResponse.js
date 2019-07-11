@@ -1,4 +1,4 @@
-async function generateResponse({ keyword, meme, topText, bottomText }) {
+async function generateResponse({ keyword, meme, topText, bottomText, username }) {
   if (keyword === "templates") {
     const fields = Object.keys(templates).map(f => {
       const part = templates[f].split("/").length - 1;
@@ -25,7 +25,16 @@ async function generateResponse({ keyword, meme, topText, bottomText }) {
     : `https://memegen.link/${meme}/${topText}/${bottomText}.jpg`;
   return {
     response_type: "in_channel",
-    attachments: [{ image_url }]
+    attachments: [{ blocks: [{
+      type:"image",
+      title: {
+        type: "plain_text",
+        text: username,
+        emoji: true
+      },
+      image_url,
+      alt_text: "meme"
+    }] }]
   };
 }
 

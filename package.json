@@ -6,7 +6,8 @@
   "author": "andrew.wood.dev@outlook.com",
   "license": "MIT",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "nodemon": "nodemon src/index.js"
   },
   "engines": {
     "node": "10.16.0",
