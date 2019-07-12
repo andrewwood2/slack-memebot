@@ -20,7 +20,7 @@ async function generateResponse({
   } else if (keyword === "help") {
     return {
       text:
-        "Pick a template by `/meme templates`. Then `/meme [template shortcut] ; top text; bottom text` "
+        "Pick a template by `/meme templates`. Then `/meme [template shortcut] ; top text; bottom text`, separated by semicolons. "
     };
   }
 

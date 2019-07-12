@@ -2,14 +2,9 @@ bot:
   build: .
   environment:
     - PORT=3000
-    - HOST=0.0.0.0
-    - SLACK_API_TOKEN=tbc
-    - SLACK_WEBHOOK_URL=tbc
-    - SLACK_VERIFICATION_TOKEN=tbc
+    - SLACK_SIGNING_SECRET
   volumes:
     - "./src:/app/src"
-  expose:
-    - 3000
   ports:
     - "3000:3000"
   command: yarn start
