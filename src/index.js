@@ -1,6 +1,6 @@
 const Express = require("express");
 const bodyParser = require("body-parser");
-const axios = require("axios")
+const axios = require("axios");
 require("dotenv").config();
 
 const generateResponse = require("./generateResponse");
@@ -18,15 +18,17 @@ app.post("/", (req, res) => {
     res.statusCode = 404;
     return res;
   }
-  
+
   generateResponse(parseCommand(req.body))
     .then(result => {
-      axios.post(req.body.response_url, result).catch(err => {console.log(err)})
+      axios.post(req.body.response_url, result).catch(err => {
+        console.log(err);
+      });
     })
     .catch(console.error);
-    res.statusCode = 200
-    res.end()
-    return res
+  res.statusCode = 200;
+  res.end();
+  return res;
 });
 
 app.get("/internal/healthcheck", (req, res) => {
